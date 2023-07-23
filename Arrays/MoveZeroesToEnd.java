@@ -20,23 +20,17 @@ public class MoveZeroesToEnd {
    * Optimal: O(N) time
    */
   public static void moveZeroes(int arr[]) {
-    // place i at the element 0
-    int i = -1;
-    for (int j = 0; j < arr.length; j++) {
-      if (arr[j] == 0) {
-        i = j;
-        break;
-      }
-    }
-
-    // now using pointer j, find the non-zero element and swap it with ith element
-    for (int j = i + 1; j < arr.length; j++) {
+    int i = 0, j = 0;
+    // idea is to point to 0 using i variable and using j find the non-zero value, finally swap values at i and j
+    while (j < arr.length) {
       if (arr[j] != 0) {
         swap(arr, i, j);
         i++;
       }
+      j++;
     }
   }
+
   public static void main(String[] args) {
     int arr[] = {1,0,2,3,0,4,0,1};
     moveZeroes(arr);
