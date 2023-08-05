@@ -57,41 +57,11 @@ public class TypesOfTree {
     return true;
   }
 
-  public static int getMax(TreeNode root) {
-    if (root == null)
-      return Integer.MIN_VALUE;
-
-    int leftSubTree = getMax(root.left);
-    int rightSubTree = getMax(root.right);
-    if (rightSubTree > leftSubTree)
-      return Math.max(root.data, rightSubTree);
-    return Math.max(root.data, leftSubTree);
-
-  }
-
-  public static int singleElement(int[] nums) {
-    int ones = 0, twos = 0;
-    for (int i = 0; i < nums.length; i++) {
-      ones = (ones ^ nums[i]) & ~twos;
-      twos = (twos ^ nums[i]) & ~ones;
-    }
-    return ones;
-  }
-
   public static void main(String args[]) {
 
-    int arr[] = {2,2,3,2};
-    System.out.println(singleElement(arr));
-
-
-    // int arr[] = { 5, 7, 11, 15, 12, 10 };
+    int arr[] = { 5, 7, 11, 15, 12, 10 };
     TreeNode root = new TreeNode(1);
-    // root = root.createTree(arr);
-
-    root.left = new TreeNode(3);
-    root.left.right = new TreeNode(2);
-
-    System.out.println(getMax(root));
+    root = root.createTree(arr);
 
     System.out.println(isFullBinaryTree(root));
     System.out.println(isComplete(root));
